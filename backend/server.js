@@ -5,7 +5,6 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
-
 connectDB();
 
 const app = express();
@@ -26,4 +25,6 @@ app.use("/api/user/", userRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-module.exports = app;
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});

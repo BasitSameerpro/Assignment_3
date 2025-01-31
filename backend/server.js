@@ -1,4 +1,3 @@
-// api/index.js
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -9,6 +8,7 @@ const { notFound, errorHandler } = require("../middleware/errorHandler");
 
 const app = express();
 
+// Enable CORS for the frontend (you may need to adjust `BASE_URL` for production)
 app.use(
   cors({
     origin: process.env.BASE_URL,
@@ -24,10 +24,14 @@ app.use(cookieParser());
 // Connect to database
 connectDB();
 
+// API routes
 app.use("/api/user/", userRoutes);
 
+// Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
-// Export the Express API
-module.exports = app;
+// Export the Express API for serverless function
+module.exports = (req, res) => {
+  app(req, res);
+};

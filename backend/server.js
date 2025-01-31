@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const connectDB = require('../config/db');
-const userRoutes = require('../routes/userRoutes');
+const connectDB = require('./config/db');  // Fix path
+const userRoutes = require('./routes/userRoutes');  // Fix path
 const cookieParser = require('cookie-parser');
-const { notFound, errorHandler } = require('../middleware/errorHandler');
+const { notFound, errorHandler } = require('./middleware/errorHandler');  // Fix path
 
 const app = express();
 
@@ -29,4 +29,5 @@ app.use('/api/user', userRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+// Export the Express API
 module.exports = app;

@@ -5,15 +5,16 @@ const connectDB = require('./config/db');  // Fix path
 const userRoutes = require('./routes/userRoutes');  // Fix path
 const cookieParser = require('cookie-parser');
 const { notFound, errorHandler } = require('./middleware/errorHandler');  // Fix path
-
+const corsConfig = require('./config/cors');  // Fix path
 const app = express();
-
+const corsConfig ={
+  origin: "*",
+  credentials: true,
+  methods: 'PUT,POST,GET,DELETE,PATCH,HEAD',
+}
+app.option
 app.use(
-  cors({
-    origin: process.env.BASE_URL,
-    credentials: true,
-    methods: 'PUT,POST,GET,DELETE,PATCH,HEAD',
-  })
+  cors(corsConfig)
 );
 
 app.use(express.json());

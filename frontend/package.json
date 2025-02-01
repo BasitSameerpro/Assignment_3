@@ -3,17 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "scripts": {
-    "dev": "vite", 
-    "build": "npx vite build",
-    "start": "vite preview",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "clean": "rd /s /q node_modules && del package-lock.json && npm cache clean --force",
-    "install:clean": "npm run clean && npm install",
-    "vercel-build": "sh .vercel-build.sh"
+    "preview": "vite preview",
+    "update-browsers": "npx update-browserslist-db@latest"
   },
   "dependencies": {
     "axios": "^1.5.1",

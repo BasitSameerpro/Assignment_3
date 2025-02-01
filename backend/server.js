@@ -21,10 +21,6 @@ app.use(cookieParser());
 // Database connection
 connectDB();
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Server is running successfully! 🚀' });
-});
-
 // Routes
 app.use('/api/user', userRoutes);
 

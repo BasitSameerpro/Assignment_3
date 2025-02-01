@@ -13,15 +13,6 @@ const {
 const checkAuth = require("../middleware/checkAuth");
 
 const userRoutes = express.Router();
-// Add test route
-userRoutes.get('/test', (req, res) => {
-  res.json({ 
-    message: 'User API is working! 👋',
-    timestamp: new Date().toISOString()
-  });
-});
-
-
 
 userRoutes.post("/login", login);
 userRoutes.post("/register", register);
